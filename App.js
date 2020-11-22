@@ -1,16 +1,9 @@
-
-
-
-
-
-import * as React from 'react';
-import HomeScreen from './src/components/HomeScreen'
-import DetailsScreen from './src/components/DetatilScreen'
-import { createStackNavigator } from '@react-navigation/stack';
-import {LogBox, StatusBar} from 'react-native';
+import React from 'react';
+import {StatusBar} from 'react-native';
 import {DefaultTheme, NavigationContainer} from '@react-navigation/native';
-
-
+import {createStackNavigator} from '@react-navigation/stack';
+import List from './src/views/List';
+import Detail from './src/views/Detail';
 
 const Stack = createStackNavigator();
 
@@ -42,7 +35,6 @@ const MyTheme = {
 
 const App = () => (
   <>
-  
     <StatusBar
       barStyle="light-content"
       backgroundColor={MyTheme.colors.primary}
@@ -55,8 +47,8 @@ const App = () => (
           },
           headerTintColor: '#fff',
         }}>
-        <Stack.Screen name="Pokédex" component={HomeScreen} />
-        <Stack.Screen name="Pokémon" component={DetailsScreen} />
+        <Stack.Screen name="Pokédex" component={List} />
+        <Stack.Screen name="Pokémon" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   </>
